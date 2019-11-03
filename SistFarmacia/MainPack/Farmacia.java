@@ -21,6 +21,8 @@ public class Farmacia {
 
     }
 
+    ///TODO: consultar por los constructores con ArrayList de los FLogicos
+    //TODO: Check when Paciente 'n FAccTerap r ready
     public static ArrayList<Medicamento> recetarMed(Enfermedad enf, Paciente pac) {
         ArrayList<Medicamento> res = new ArrayList<Medicamento>();
         FAnd f;
@@ -29,19 +31,19 @@ public class Farmacia {
             ArrayList<Sintoma> sintomas = pac.getSintomas();
             ArrayList<EstPato> ePatos = enf.getEPatos();
 
-            ArrayList<FDroga> fsAlergias = new ArrayList<FDroga>();//drogas que no puede consumir
-            ArrayList<FContraindic> fsSintomas = new ArrayList<FContraindic>();//contraindicaciones que no puede tener
-            //ArrayList<FAccTerap> fsAccTerap = new ArrayList<FAccTerap>();//ePatologicos que debe curar
+            ArrayList<Filtro> fsAlergias = new ArrayList<Filtro>();//drogas que no puede consumir
+            ArrayList<Filtro> fsSintomas = new ArrayList<Filtro>();//contraindicaciones que no puede tener
+            //ArrayList<Filtro> fsAccTerap = new ArrayList<FAccTerap>();//ePatologicos que debe curar
 
             for (DrogaSimple d : alergias)
                 fsAlergias.add(new FDroga(d.getNombre()));
             for (Sintoma s : sintomas)
                 fsSintomas.add(new FContraindic(s));
-           /* for (EstPato e : ePatos)
+            for (EstPato e : ePatos)
                 fsAccTerap.add(new FAccTerap(e));
-           */
+
             ArrayList<Filtro> filtros = new ArrayList<Filtro>();
-            //filtros.add(new FAnd(fsAccTerap));
+            filtros.add(new FAnd(fsAccTerap));
             filtros.add(new FNot(new FOr(fsAlergias)));
             filtros.add(new FNot(new FOr(fsSintomas)));
 
