@@ -11,8 +11,14 @@ public class Farmacia {
 
     public static void main(String[] args){
         inicArrs();
+        Medicamento m = medicamentos.get(2);
+        ArrayList<Medicamento> medsFiltrados = m.getMeds(new FDroga("d4"));
 
-        System.out.println("Holita");
+        System.out.println("Tamaño resultado: " + medsFiltrados.size());
+        if(medsFiltrados.size() > 0)
+            for(Medicamento med : medsFiltrados)
+                System.out.println(med.getNombre());
+
     }
 
     private static void inicArrs(){
