@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import Filtros.*;
 import MainPack.*;
 
-public class Medicamento implements Droga {
-    private String nombre;
+public class Medicamento extends Droga {
+
     private ArrayList<Droga> compuestos;
     private float[] concentracion;
 
-    public Medicamento(ArrayList<Droga> compuestos, float[] concentracion){
+    public Medicamento(String nombre, ArrayList<Droga> compuestos, float[] concentracion){
+        this.nombre = nombre;
         this.compuestos = new ArrayList<Droga>();
         this.compuestos.addAll(compuestos);
         int tam = compuestos.size();
@@ -21,35 +22,46 @@ public class Medicamento implements Droga {
 
     }
     public String getNombre(){
-
+        return nombre;
     }
-    public EstPato getAccTerap(){
 
-    }
-    public Sintoma getContraindic(){
-
-    }
     public boolean esAccionTerap(EstPato estPato){
-
+        for(Droga d : compuestos){
+            if(d.esAccionTerap(estPato))
+                return true;
+        }
+        return false;
     }
 
     public boolean esContraindic(Sintoma sintoma){
-
+        return true;
     }
 
     public ArrayList<Droga> getDrogas(Filtro filtro){
+        ArrayList<Droga> res = new ArrayList<Droga>();
 
+        return res;
     }
 
-    public ArrayList<Medicamento> getMeds(Filtro f){
+    public ArrayList<Medicamento> getMeds(Filtro filtro){
 
         ArrayList<Medicamento> res = new ArrayList<Medicamento>();
+        boolean cumple = false;
 
-        for(Medicamento m : compuestos){
-            ArrayList<Medicamento> aux = m.getMeds();
-            if(aux != null)
-                res.addAll(aux);
+        for(Droga d : compuestos){
+            ArrayList<Medicamento> aux = d.getMeds(filtro);
+
+            if(aux != null){///solo devuelve null si era DrogaSimple que no cumple filtro
+                if(aux.size() > 0)
+                    res.addAll(aux);
+
+                cumple = true;
+            }
         }
+
+        if(cumple)
+            res.add(this);
+
         return res;
 
     }
