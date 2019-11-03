@@ -42,6 +42,7 @@ public class Medicamento implements Droga {
     }
 
     public ArrayList<Medicamento> getMeds(Filtro f){
+
         ArrayList<Medicamento> res = new ArrayList<Medicamento>();
 
         for(Medicamento m : compuestos){
@@ -49,6 +50,7 @@ public class Medicamento implements Droga {
             if(aux != null)
                 res.addAll(aux);
         }
+        return res;
 
     }
 }
