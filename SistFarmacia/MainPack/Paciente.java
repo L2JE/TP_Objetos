@@ -17,4 +17,5 @@ public class Paciente {
         this.alergias = alergias;
         this.sintomas = sintomas;
     }
+
 }

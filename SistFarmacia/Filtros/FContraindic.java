@@ -3,7 +3,7 @@ package Filtros;
 import Drogas.*;
 import MainPack.*;
 
-public class FContraindic {
+public class FContraindic implements Filtro {
 
     private Sintoma contraindic;
 
@@ -11,7 +11,7 @@ public class FContraindic {
         this.contraindic = contraindic;
     }
 
-    public boolean cumple(Droga drog){
-        return (drog != null) && drog.esContraindic(contraindic);
+    public boolean cumple(Droga d){
+        return (d != null) && d.esContraindic(contraindic);
     }
 }

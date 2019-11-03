@@ -21,8 +21,22 @@ public class Medicamento extends Droga {
         }
 
     }
+
     public String getNombre(){
         return nombre;
+    }
+
+    //Devuelve el porcentaje de DrogaSimple o Medicamento que contiene this
+    public float getPorcentDroga(Droga d){
+        float res = (float)0.0;
+        if(d.getNombre() != this.nombre)
+            for(int i = 0 ; i < compuestos.size() ; i++){
+                res += concentracion[i]*compuestos.get(i).getPorcentDroga(d);
+            }
+        else
+            return (float)1;
+
+        return res;
     }
 
     public boolean esAccionTerap(EstPato estPato){

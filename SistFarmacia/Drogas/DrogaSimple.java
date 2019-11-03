@@ -21,6 +21,10 @@ public class DrogaSimple extends Droga {
         return nombre;
     }
 
+    public float getPorcentDroga(Droga d){
+        return (d.getNombre() == this.nombre)? (float)1:(float)0;
+    }
+
     public boolean esAccionTerap(EstPato estPato){
         return accionesTerap.contains(estPato);
     }

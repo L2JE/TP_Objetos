@@ -21,6 +21,48 @@ public class Farmacia {
 
     }
 
+    public static ArrayList<Medicamento> recetarMed(Enfermedad enf, Paciente pac) {
+        ArrayList<Medicamento> res = new ArrayList<Medicamento>();
+        FAnd f;
+        {
+            ArrayList<DrogaSimple> alergias = pac.getAlergias();
+            ArrayList<Sintoma> sintomas = pac.getSintomas();
+            ArrayList<EstPato> ePatos = enf.getEPatos();
+
+            ArrayList<FDroga> fsAlergias = new ArrayList<FDroga>();//drogas que no puede consumir
+            ArrayList<FContraindic> fsSintomas = new ArrayList<FContraindic>();//contraindicaciones que no puede tener
+            //ArrayList<FAccTerap> fsAccTerap = new ArrayList<FAccTerap>();//ePatologicos que debe curar
+
+            for (DrogaSimple d : alergias)
+                fsAlergias.add(new FDroga(d.getNombre()));
+            for (Sintoma s : sintomas)
+                fsSintomas.add(new FContraindic(s));
+           /* for (EstPato e : ePatos)
+                fsAccTerap.add(new FAccTerap(e));
+           */
+            ArrayList<Filtro> filtros = new ArrayList<Filtro>();
+            //filtros.add(new FAnd(fsAccTerap));
+            filtros.add(new FNot(new FOr(fsAlergias)));
+            filtros.add(new FNot(new FOr(fsSintomas)));
+
+            f = new FAnd(filtros);
+        }
+
+        for (Medicamento m : medicamentos){
+            res.addAll(m.getMeds(f));
+        }
+        return res;
+    }
+
+    public static ArrayList<Medicamento> getMedsPorcentaje(Droga d, float porcent){
+        ArrayList<Medicamento> res = new ArrayList<Medicamento>();
+        for(Medicamento m : medicamentos){
+            if(m.getPorcentDroga(d) > porcent)
+                res.add(m);
+        }
+        return res;
+    }
+
     private static void inicArrs(){
 
         //INICIALIZANDO DROGAS SIMPLES
