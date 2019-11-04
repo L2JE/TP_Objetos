@@ -21,33 +21,28 @@ public class Farmacia {
 
     }
 
-    /*TODO:
-        FAccTerap
-    *
-
-    */
     public static ArrayList<Medicamento> recetarMed(Enfermedad enf){
     	ArrayList<Medicamento> res = new ArrayList<Medicamento>();
     	
     	ArrayList<EstPato> estadosPatologicos = enf.getEPatos();
-    	ArrayList<Filtro> fEstadosPatologicos = new ArrayList<Filtro>();
-    	for(EstPato e: estadosPatologicos)
-    		fEstadosPatologicos.add( new FAccTerap(e) );
 
-    	FAnd f = new FAnd(fEstadosPatologicos);
-    	
-    	for(Medicamento m: medicamentos) {
-    		if (f.cumple(m))
-    				res.add(m);
-    	}
-    	
+    	for(Medicamento m: medicamentos)
+            for(EstPato e: estadosPatologicos)
+                if (m.esAccionTerap(e))
+                        res.add(m);
+
     	return res;
     	
     }
     
     
-    ///TODO: consultar por los constructores con ArrayList de los FLogicos
-    //TODO: Check when Paciente 'n FAccTerap r ready
+    /*TODO: ESPERAR RESPUESTA DEL PROFE
+            *consultar por los constructores con ArrayList de los FLogicos
+            *getMeds devuelve los medicamentos por los que esta compuesto M
+            *getDrogas devuelve Medicamento y DrogaSimple del que esta hecho
+            *para recetar, que pasa si M2 es la cura y no lo tengo, M1 tiene M2 => solo deveria devolver M1
+
+    */
     public static ArrayList<Medicamento> recetarMed(Enfermedad enf, Paciente pac) {
         ArrayList<Medicamento> res = new ArrayList<Medicamento>();
         FAnd f;
@@ -78,6 +73,7 @@ public class Farmacia {
         for (Medicamento m : medicamentos){
             res.addAll(m.getMeds(f));
         }
+
         return res;
     }
     
