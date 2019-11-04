@@ -22,10 +22,6 @@ public class Medicamento extends Droga {
 
     }
 
-    public String getNombre(){
-        return nombre;
-    }
-
     public boolean contiene(Droga d){
         for(Droga c : compuestos){
             if(c.contiene(d))
@@ -70,9 +66,11 @@ public class Medicamento extends Droga {
 
         for(Droga d : compuestos){
             ArrayList<Droga> aux = d.getDrogas(filtro);
-            if(aux != null){///solo devuelve null si era DrogaSimple que no cumple filtro
-                if(aux.size() > 0)
-                    res.addAll(aux);
+            if(aux.size() > 0){
+                for(Droga dAux : aux){
+                    if (!res.contains(dAux))
+                        res.add(dAux);
+                }
                 cumple = true;
             }
         }
@@ -93,7 +91,10 @@ public class Medicamento extends Droga {
 
             if(aux != null){///solo devuelve null si era DrogaSimple que no cumple filtro
                 if(aux.size() > 0)
-                    res.addAll(aux);
+                    for(Medicamento dAux : aux){
+                        if (!res.contains(dAux))
+                            res.add(dAux);
+                    }
 
                 cumple = true;
             }

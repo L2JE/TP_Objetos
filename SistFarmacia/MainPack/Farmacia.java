@@ -7,18 +7,17 @@ import Filtros.*;
 public class Farmacia {
 
     private static ArrayList<Medicamento> medicamentos = new ArrayList<Medicamento>();
+    private static ArrayList<Integer> stock = new ArrayList<>();
     private static ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
 
     public static void main(String[] args){
         inicArrs();
-        Medicamento m = medicamentos.get(2);
-        DrogaSimple d4 = new DrogaSimple("d4", new ArrayList<EstPato>(), new ArrayList<Sintoma>());
-        ArrayList<Medicamento> medsFiltrados = m.getMeds(new FDroga(d4));
+        //testFiltradoDroga();//OK
+        //testRecetarAEnf();//OK
+        //testRecetarAEnfPac();//OK
+        //testRecetarDrogas();//ok
+        testPorcentajes();
 
-        System.out.println("Tamaño resultado: " + medsFiltrados.size());
-        if(medsFiltrados.size() > 0)
-            for(Medicamento med : medsFiltrados)
-                System.out.println(med.getNombre());
 
     }
 
@@ -34,14 +33,36 @@ public class Farmacia {
                     cumple = false;
                     break;
                 }
-            if(cumple)
+
+            if(cumple && (stock.get(medicamentos.indexOf(m)) > 0))
                 res.add(m);
         }
 
     	return res;
     	
     }
-    
+
+    public static ArrayList<Droga> recetarDrog(Enfermedad enf){
+        ArrayList<Droga> res = new ArrayList<Droga>();
+
+        ArrayList<EstPato> estadosPatologicos = enf.getEPatos();
+        ArrayList<Filtro> filtros = new ArrayList<Filtro>();
+        for(EstPato e : estadosPatologicos)
+            filtros.add(new FAccTerap(e));
+
+        Filtro f = new FAnd(filtros);
+
+        for(Medicamento m: medicamentos){
+            ArrayList<Droga> aux = m.getDrogas(f);
+            for(Droga d : aux )
+                if(!res.contains(d))
+                    res.add(d);
+        }
+
+
+        return res;
+
+    }
     
     /*TODO: ESPERAR RESPUESTA DEL PROFE
             *consultar por los constructores con ArrayList de los FLogicos
@@ -77,7 +98,7 @@ public class Farmacia {
         }
 
         for (Medicamento m : medicamentos)
-            if(f.cumple(m))
+            if(f.cumple(m) && (stock.get(medicamentos.indexOf(m)) > 0))
                 res.add(m);
 
         return res;
@@ -99,6 +120,12 @@ public class Farmacia {
     private static void inicArrs(){
 
         //INICIALIZANDO DROGAS SIMPLES
+        ArrayList<EstPato> accTerap5 = new ArrayList<EstPato>();
+        ArrayList<Sintoma> contra5 = new ArrayList<Sintoma>();
+        accTerap5.add(EstPato.E2);
+        contra5.add(Sintoma.Lactancia);
+        DrogaSimple d5 = new DrogaSimple("d5", accTerap5, contra5);
+
         ArrayList<EstPato> accTerap0 = new ArrayList<EstPato>();
         ArrayList<Sintoma> contra0 = new ArrayList<Sintoma>();
         accTerap0.add(EstPato.E1);
@@ -154,18 +181,146 @@ public class Farmacia {
 
         ArrayList<Droga> comp1 = new ArrayList<Droga>();
         comp1.add(m2);
+        comp1.add(d5);
         comp1.add(d1);
-        Medicamento m1 = new Medicamento("m1", comp1, cons);
+        float[] cons1 = {(float) 0.5, (float) 0.5, (float) 0.5};
+        Medicamento m1 = new Medicamento("m1", comp1, cons1);
 
         ///CARGO ESTRUCTURAS DEL SISTEMA
         medicamentos.add(m1);
+        stock.add(5);
         medicamentos.add(m2);
+        stock.add(5);
         medicamentos.add(m3);
+        stock.add(5);
         medicamentos.add(m4);
+        stock.add(5);
         medicamentos.add(m5);
+        stock.add(5);
+
 
         pacientes.add(new Paciente(d1, Sintoma.Cardiaco));
         pacientes.add(new Paciente(d3, Sintoma.S2));
 
+    }
+
+    static void testFiltradoDroga(){
+        System.out.println("Inicio test filtrado por Droga");
+
+        Medicamento m = medicamentos.get(2);
+        DrogaSimple d4 = new DrogaSimple("d4", new ArrayList<EstPato>(), new ArrayList<Sintoma>());
+        ArrayList<Medicamento> medsFiltrados = m.getMeds(new FDroga(d4));
+
+        System.out.println("Tamaño resultado: " + medsFiltrados.size());
+        if(medsFiltrados.size() > 0)
+            for(Medicamento med : medsFiltrados)
+                System.out.println(med.getNombre());
+
+        System.out.println("FIN test filtrado por Droga");
+
+
+    }
+
+    static void testRecetarAEnf(){
+        System.out.println("Inicio test recetar Medicamento a Enfermedad");
+        System.out.println("Resultado esperado: M1, M2, M5");
+        ArrayList<EstPato> estados = new ArrayList<EstPato>();
+        estados.add(EstPato.E1);
+        //estados.add(EstPato.E2);
+
+        Enfermedad e = new Enfermedad("Lepra", estados);
+        System.out.println("Enfermedad a recetar:");
+        System.out.println(e);
+
+        ArrayList<Medicamento> receta = recetarMed(e);
+
+        System.out.println("RECETA: ");
+        for (Medicamento m : receta)
+            System.out.println(m.getNombre());
+
+        System.out.println("FIN test recetar Medicamento a Enfermedad");
+    }
+
+    static void testRecetarAEnfPac(){
+        System.out.println("Inicio test recetar Medicamento a Paciente de Riesgo");
+        System.out.println("Resultado esperado: M2, M5");
+
+        ArrayList<EstPato> estados = new ArrayList<EstPato>();
+        estados.add(EstPato.E2);
+        Enfermedad e = new Enfermedad("Alzheimer", estados);
+
+        Sintoma sintoma = Sintoma.Lactancia;
+        Paciente paciente = new Paciente(sintoma);
+        System.out.println(paciente);
+
+        System.out.println("Enfermedad a recetar:");
+        System.out.println(e);
+
+        ArrayList<Medicamento> receta = recetarMed(e,paciente);
+
+        System.out.println("RECETA: ");
+        for (Medicamento m : receta)
+            System.out.println(m.getNombre());
+
+        System.out.println("FIN test recetar Medicamento a Paciente de Riesgo");
+    }
+
+    static void testRecetarDrogas(){
+        System.out.println("Inicio test recetar Drogas a Enfermedad");
+        System.out.println("Resultado esperado: M1, M2, M5, D0");
+        ArrayList<EstPato> estados = new ArrayList<EstPato>();
+        estados.add(EstPato.E1);
+        //estados.add(EstPato.E2);
+
+        Enfermedad e = new Enfermedad("Lepra", estados);
+        System.out.println("Enfermedad a recetar:");
+        System.out.println(e);
+
+        ArrayList<Droga> receta = recetarDrog(e);
+
+        System.out.println("RECETA: ");
+        for (Droga m : receta)
+            System.out.println(m.getNombre());
+
+        System.out.println("FIN test recetar Drogas a Enfermedad");
+    }
+
+    static void testPorcentajes(){
+        System.out.println("Inicio test Porcentaje de droga en un medicamento");
+        ArrayList<EstPato> accTerap1 = new ArrayList<EstPato>();
+        ArrayList<Sintoma> contra1 = new ArrayList<Sintoma>();
+        accTerap1.add(EstPato.E2);
+        contra1.add(Sintoma.S2);
+        DrogaSimple d1 = new DrogaSimple("d1", accTerap1, contra1);
+
+        Medicamento med = medicamentos.get(1);
+
+        System.out.println("Medicamento: " + med.getNombre());
+        System.out.println("Droga: " + d1.getNombre());
+        System.out.println("Resultado esperado= 0,25");
+
+
+
+        float res= getPorcentajeMed(med, d1);
+
+        System.out.println("Resultado ="+ res);
+        System.out.println("FIN test Porcentaje de droga en un medicamento");
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("Inicio test medicamentos con porcentaje de droga mayor al dado");
+        float porcent = (float) 0.4;
+
+        System.out.println("Porcentaje Dado: " + porcent);
+        System.out.println("Droga: " + d1.getNombre());
+        System.out.println("Resultado esperado= m1,m5");
+
+
+
+        ArrayList<Medicamento> res1 = getMedsPorcentaje(d1, porcent);
+
+        System.out.println("Resultado =");
+        for(Medicamento m : res1){
+            System.out.println(m.getNombre());
+        }
+        System.out.println("FIN test medicamentos con porcentaje de droga mayor al dado");
     }
 }

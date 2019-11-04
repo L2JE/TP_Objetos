@@ -18,4 +18,13 @@ public class Enfermedad {
     public ArrayList<EstPato> getEPatos() {
         return ePatos;
     }
+
+    public String toString(){
+        String salida = "Nombre de Enfermedad: " + nombre + "\n";
+        salida += "Estados Patologicos que Trata: \n";
+        for(EstPato e : ePatos)
+            salida += e;
+
+        return salida;
+    }
 }

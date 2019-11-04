@@ -16,11 +16,6 @@ public class DrogaSimple extends Droga {
         this.contraindics = contraindics;
     }
 
-
-    public String getNombre(){
-        return nombre;
-    }
-
     public boolean contiene(Droga d){
         return nombre.equals(d.getNombre());
     }
