@@ -48,10 +48,14 @@ public class Medicamento extends Droga {
     }
 
     public boolean esContraindic(Sintoma sintoma){
-        return true;
+        for(Droga d : compuestos){
+            if(d.esContraindic(sintoma))
+                return true;
+        }
+        return false;
     }
 
-    public ArrayList<Droga> getDrogas(Filtro filtro){
+    public ArrayList<Droga> getDrogas(Filtro filtro){///TODO: vos Mainco!!!
         ArrayList<Droga> res = new ArrayList<Droga>();
 
         return res;
