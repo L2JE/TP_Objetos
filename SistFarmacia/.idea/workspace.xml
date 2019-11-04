@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3d438afa-e2a0-4bac-834e-dfe6ff8e35f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainPack/Farmacia.java" beforeDir="false" afterPath="$PROJECT_DIR$/MainPack/Farmacia.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,19 +17,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainPack/Farmacia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="119">
+              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#recetarMed#0;class#Farmacia#0" />
-                <element signature="e#777#790#0" expanded="true" />
-                <element signature="e#1164#1172#0" expanded="true" />
-                <element signature="e#1262#1270#0" expanded="true" />
-                <element signature="e#1825#1833#0" expanded="true" />
-                <element signature="e#2100#2113#0" expanded="true" />
+                <element signature="e#954#962#0" expanded="true" />
+                <element signature="e#2782#2783#0" expanded="true" />
+                <element signature="e#2822#2823#0" expanded="true" />
                 <element signature="method#inicArrs#0;class#Farmacia#0" />
               </folding>
             </state>
@@ -44,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Filtros/FContraindic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="120">
+              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -56,12 +54,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Drogas/DrogaSimple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
+            <state relative-caret-position="150">
               <caret line="12" column="105" selection-start-line="12" selection-start-column="105" selection-end-line="12" selection-end-column="105" />
               <folding>
                 <element signature="method#DrogaSimple#0;class#DrogaSimple#0" />
                 <element signature="method#getDrogas#0;class#DrogaSimple#0" />
-                <element signature="method#getMeds#0;class#DrogaSimple#0" />
               </folding>
             </state>
           </provider>
@@ -71,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/MainPack/Enfermedad.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               <folding>
                 <element signature="e#304#305#0" expanded="true" />
                 <element signature="e#333#334#0" expanded="true" />
@@ -85,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Drogas/Medicamento.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="-30">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding>
                 <element signature="method#Medicamento#0;class#Medicamento#0" />
                 <element signature="method#getPorcentDroga#0;class#Medicamento#0" />
@@ -148,8 +145,8 @@
         <option value="$PROJECT_DIR$/Filtros/FOr.java" />
         <option value="$PROJECT_DIR$/Filtros/Filtro.java" />
         <option value="$PROJECT_DIR$/Filtros/FAnd.java" />
-        <option value="$PROJECT_DIR$/MainPack/Farmacia.java" />
         <option value="$PROJECT_DIR$/Drogas/Medicamento.java" />
+        <option value="$PROJECT_DIR$/MainPack/Farmacia.java" />
       </list>
     </option>
   </component>
@@ -164,6 +161,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,7 +188,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -231,8 +228,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="728" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23030303" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23409091" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -243,9 +241,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.069536425" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.5083333" visible="true" weight="0.37251654" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924242" weight="0.3294702" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007576" side_tool="true" visible="true" weight="0.3294702" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.49166667" side_tool="true" visible="true" weight="0.37251654" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3294702" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -263,7 +261,8 @@
     <MESSAGE value="Agregados filtros logicos.&#10;Farmacia:getMeds(Paciente) en proceso" />
     <MESSAGE value="Farmacia:getMeds(Paciente) listo para test" />
     <MESSAGE value="FALTA TEST&#10;  Eliminado FPorcentaje (Lo resuelve metodo en main)&#10;  Eliminada informacion innecesaria en Medicamento&#10;  Terminadas todas las tareas a mi cargo" />
-    <option name="LAST_COMMIT_MESSAGE" value="FALTA TEST&#10;  Eliminado FPorcentaje (Lo resuelve metodo en main)&#10;  Eliminada informacion innecesaria en Medicamento&#10;  Terminadas todas las tareas a mi cargo" />
+    <MESSAGE value="Pull de los cambios de mainque" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pull de los cambios de mainque" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MainPack/Sintoma.java">
@@ -335,37 +334,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Filtros/FPorcent.java">
+    <entry file="file://$PROJECT_DIR$/Filtros/FPorcent.java" />
+    <entry file="file://$PROJECT_DIR$/MainPack/EstPato.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="40" lean-forward="true" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        <state relative-caret-position="135">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drogas/DrogaSimple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="105" selection-start-line="12" selection-start-column="105" selection-end-line="12" selection-end-column="105" />
+          <folding>
+            <element signature="method#DrogaSimple#0;class#DrogaSimple#0" />
+            <element signature="method#getDrogas#0;class#DrogaSimple#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MainPack/Enfermedad.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           <folding>
             <element signature="e#304#305#0" expanded="true" />
             <element signature="e#333#334#0" expanded="true" />
             <element signature="e#378#379#0" expanded="true" />
             <element signature="e#407#408#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Drogas/Medicamento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-          <folding>
-            <element signature="method#Medicamento#0;class#Medicamento#0" />
-            <element signature="method#getPorcentDroga#0;class#Medicamento#0" />
-            <element signature="e#1174#1255#1" />
-            <element signature="method#esContraindic#0;class#Medicamento#0" />
-            <element signature="method#getDrogas#0;class#Medicamento#0" />
-            <element signature="method#getMeds#0;class#Medicamento#0" />
           </folding>
         </state>
       </provider>
@@ -377,46 +373,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Drogas/DrogaSimple.java">
+    <entry file="file://$PROJECT_DIR$/Filtros/FContraindic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="12" column="105" selection-start-line="12" selection-start-column="105" selection-end-line="12" selection-end-column="105" />
+        <state relative-caret-position="120">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drogas/Medicamento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="method#DrogaSimple#0;class#DrogaSimple#0" />
-            <element signature="method#getDrogas#0;class#DrogaSimple#0" />
-            <element signature="method#getMeds#0;class#DrogaSimple#0" />
+            <element signature="method#Medicamento#0;class#Medicamento#0" />
+            <element signature="method#getPorcentDroga#0;class#Medicamento#0" />
+            <element signature="e#1174#1255#1" />
+            <element signature="method#esContraindic#0;class#Medicamento#0" />
+            <element signature="method#getDrogas#0;class#Medicamento#0" />
+            <element signature="method#getMeds#0;class#Medicamento#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MainPack/Farmacia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="119">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#recetarMed#0;class#Farmacia#0" />
-            <element signature="e#777#790#0" expanded="true" />
-            <element signature="e#1164#1172#0" expanded="true" />
-            <element signature="e#1262#1270#0" expanded="true" />
-            <element signature="e#1825#1833#0" expanded="true" />
-            <element signature="e#2100#2113#0" expanded="true" />
+            <element signature="e#954#962#0" expanded="true" />
+            <element signature="e#2782#2783#0" expanded="true" />
+            <element signature="e#2822#2823#0" expanded="true" />
             <element signature="method#inicArrs#0;class#Farmacia#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainPack/EstPato.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Filtros/FContraindic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>

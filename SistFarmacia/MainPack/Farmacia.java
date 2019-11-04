@@ -21,6 +21,11 @@ public class Farmacia {
 
     }
 
+    /*TODO:
+        FAccTerap
+    *
+
+    */
     public static ArrayList<Medicamento> recetarMed(Enfermedad enf){
     	ArrayList<Medicamento> res = new ArrayList<Medicamento>();
     	
@@ -28,6 +33,7 @@ public class Farmacia {
     	ArrayList<Filtro> fEstadosPatologicos = new ArrayList<Filtro>();
     	for(EstPato e: estadosPatologicos)
     		fEstadosPatologicos.add( new FAccTerap(e) );
+
     	FAnd f = new FAnd(fEstadosPatologicos);
     	
     	for(Medicamento m: medicamentos) {
