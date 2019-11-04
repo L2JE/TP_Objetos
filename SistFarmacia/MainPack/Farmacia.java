@@ -21,6 +21,25 @@ public class Farmacia {
 
     }
 
+    public static ArrayList<Medicamento> recetarMed(Enfermedad enf){
+    	ArrayList<Medicamento> res = new ArrayList<Medicamento>();
+    	
+    	ArrayList<EstPato> estadosPatologicos = enf.getEPatos();
+    	ArrayList<Filtro> fEstadosPatologicos = new ArrayList<Filtro>();
+    	for(EstPato e: estadosPatologicos)
+    		fEstadosPatologicos.add( new FAccTerap(e) );
+    	FAnd f = new FAnd(fEstadosPatologicos);
+    	
+    	for(Medicamento m: medicamentos) {
+    		if (f.cumple(m))
+    				res.add(m);
+    	}
+    	
+    	return res;
+    	
+    }
+    
+    
     ///TODO: consultar por los constructores con ArrayList de los FLogicos
     //TODO: Check when Paciente 'n FAccTerap r ready
     public static ArrayList<Medicamento> recetarMed(Enfermedad enf, Paciente pac) {
@@ -33,7 +52,7 @@ public class Farmacia {
 
             ArrayList<Filtro> fsAlergias = new ArrayList<Filtro>();//drogas que no puede consumir
             ArrayList<Filtro> fsSintomas = new ArrayList<Filtro>();//contraindicaciones que no puede tener
-            //ArrayList<Filtro> fsAccTerap = new ArrayList<FAccTerap>();//ePatologicos que debe curar
+            ArrayList<Filtro> fsAccTerap = new ArrayList<Filtro>();//ePatologicos que debe curar
 
             for (DrogaSimple d : alergias)
                 fsAlergias.add(new FDroga(d.getNombre()));
@@ -54,6 +73,10 @@ public class Farmacia {
             res.addAll(m.getMeds(f));
         }
         return res;
+    }
+    
+    public static float getPorcentajeMed(Medicamento m, Droga d) {
+    	return m.getPorcentDroga(d);
     }
 
     public static ArrayList<Medicamento> getMedsPorcentaje(Droga d, float porcent){

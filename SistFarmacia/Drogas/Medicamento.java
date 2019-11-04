@@ -55,9 +55,23 @@ public class Medicamento extends Droga {
         return false;
     }
 
-    public ArrayList<Droga> getDrogas(Filtro filtro){///TODO: vos Mainco!!!
+    public ArrayList<Droga> getDrogas(Filtro filtro){
         ArrayList<Droga> res = new ArrayList<Droga>();
 
+        boolean cumple = false;
+
+        for(Droga d : compuestos){
+            ArrayList<Droga> aux = d.getDrogas(filtro);
+            if(aux != null){///solo devuelve null si era DrogaSimple que no cumple filtro
+                if(aux.size() > 0)
+                    res.addAll(aux);
+                cumple = true;
+            }
+        }
+
+        if(cumple)
+            res.add(this);
+        
         return res;
     }
 

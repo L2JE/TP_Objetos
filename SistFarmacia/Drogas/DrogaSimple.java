@@ -35,7 +35,10 @@ public class DrogaSimple extends Droga {
 
     public ArrayList<Droga> getDrogas(Filtro filtro){
         ArrayList<Droga> res = new ArrayList<Droga>();
-
+        
+        if (filtro.cumple(this))
+        	res.add(this);
+        
         return res;
     }
 
@@ -46,6 +49,5 @@ public class DrogaSimple extends Droga {
 
         return res;
     }
-
 
 }

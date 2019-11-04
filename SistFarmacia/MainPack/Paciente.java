@@ -18,4 +18,12 @@ public class Paciente {
         this.sintomas = sintomas;
     }
 
+    public ArrayList<DrogaSimple> getAlergias(){
+    	return this.alergias;
+    }
+    
+    public ArrayList<Sintoma> getSintomas(){
+    	return this.sintomas;
+    }
+    
 }

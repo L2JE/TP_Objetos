@@ -1,7 +1,6 @@
 package Filtros;
 
 import Drogas.*;
-import MainPack.*;
 
 public class FDroga implements Filtro {
 
