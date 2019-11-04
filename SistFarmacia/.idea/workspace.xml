@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d438afa-e2a0-4bac-834e-dfe6ff8e35f4" name="Default Changelist" comment="Modificado:&#10;  Droga:contiene(Droga)&#10;  FDroga:FDroga(Droga droga)&#10;  Farmacia:recetarMeds() usan FDroga sobre medicamentos">
+    <list default="true" id="3d438afa-e2a0-4bac-834e-dfe6ff8e35f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Drogas/Droga.java" beforeDir="false" afterPath="$PROJECT_DIR$/Drogas/Droga.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Drogas/DrogaSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/Drogas/DrogaSimple.java" afterDir="false" />
@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainPack/Farmacia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="100" column="71" selection-start-line="100" selection-start-column="71" selection-end-line="100" selection-end-column="71" />
+            <state relative-caret-position="-209">
+              <caret line="198" column="21" lean-forward="true" selection-start-line="198" selection-start-column="21" selection-end-line="198" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#170#183#0" expanded="true" />
@@ -322,7 +322,8 @@
     <MESSAGE value="Pull de los cambios de mainque" />
     <MESSAGE value="Modificado:&#10;  Farmacia:recetarMed(Enfermedad)&#10;  Agregado comentario TODO" />
     <MESSAGE value="Modificado:&#10;  Droga:contiene(Droga)&#10;  FDroga:FDroga(Droga droga)&#10;  Farmacia:recetarMeds() usan FDroga sobre medicamentos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificado:&#10;  Droga:contiene(Droga)&#10;  FDroga:FDroga(Droga droga)&#10;  Farmacia:recetarMeds() usan FDroga sobre medicamentos" />
+    <MESSAGE value="TESTS OK:&#10;  agregados metodos de test&#10;  Ahora todo funciona con los medicamentos disponibles&#10;  Falta testear lo mismo con los Stocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="TESTS OK:&#10;  agregados metodos de test&#10;  Ahora todo funciona con los medicamentos disponibles&#10;  Falta testear lo mismo con los Stocks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -490,8 +491,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MainPack/Farmacia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="100" column="71" selection-start-line="100" selection-start-column="71" selection-end-line="100" selection-end-column="71" />
+        <state relative-caret-position="-209">
+          <caret line="198" column="21" lean-forward="true" selection-start-line="198" selection-start-column="21" selection-end-line="198" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#170#183#0" expanded="true" />
