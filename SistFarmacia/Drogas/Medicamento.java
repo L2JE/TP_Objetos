@@ -26,6 +26,14 @@ public class Medicamento extends Droga {
         return nombre;
     }
 
+    public boolean contiene(Droga d){
+        for(Droga c : compuestos){
+            if(c.contiene(d))
+                return true;
+        }
+        return false;
+    }
+
     //Devuelve el porcentaje de DrogaSimple o Medicamento que contiene this
     public float getPorcentDroga(Droga d){
         float res = (float)0.0;

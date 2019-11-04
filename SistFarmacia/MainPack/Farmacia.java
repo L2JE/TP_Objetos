@@ -12,7 +12,8 @@ public class Farmacia {
     public static void main(String[] args){
         inicArrs();
         Medicamento m = medicamentos.get(2);
-        ArrayList<Medicamento> medsFiltrados = m.getMeds(new FDroga("d4"));
+        DrogaSimple d4 = new DrogaSimple("d4", new ArrayList<EstPato>(), new ArrayList<Sintoma>());
+        ArrayList<Medicamento> medsFiltrados = m.getMeds(new FDroga(d4));
 
         System.out.println("Tamaño resultado: " + medsFiltrados.size());
         if(medsFiltrados.size() > 0)
@@ -26,10 +27,16 @@ public class Farmacia {
     	
     	ArrayList<EstPato> estadosPatologicos = enf.getEPatos();
 
-    	for(Medicamento m: medicamentos)
+    	for(Medicamento m: medicamentos){
+    	    boolean cumple = true;
             for(EstPato e: estadosPatologicos)
-                if (m.esAccionTerap(e))
-                        res.add(m);
+                if (!m.esAccionTerap(e)){
+                    cumple = false;
+                    break;
+                }
+            if(cumple)
+                res.add(m);
+        }
 
     	return res;
     	
@@ -41,7 +48,6 @@ public class Farmacia {
             *getMeds devuelve los medicamentos por los que esta compuesto M
             *getDrogas devuelve Medicamento y DrogaSimple del que esta hecho
             *para recetar, que pasa si M2 es la cura y no lo tengo, M1 tiene M2 => solo deveria devolver M1
-
     */
     public static ArrayList<Medicamento> recetarMed(Enfermedad enf, Paciente pac) {
         ArrayList<Medicamento> res = new ArrayList<Medicamento>();
@@ -56,7 +62,7 @@ public class Farmacia {
             ArrayList<Filtro> fsAccTerap = new ArrayList<Filtro>();//ePatologicos que debe curar
 
             for (DrogaSimple d : alergias)
-                fsAlergias.add(new FDroga(d.getNombre()));
+                fsAlergias.add(new FDroga(d));
             for (Sintoma s : sintomas)
                 fsSintomas.add(new FContraindic(s));
             for (EstPato e : ePatos)
@@ -70,9 +76,9 @@ public class Farmacia {
             f = new FAnd(filtros);
         }
 
-        for (Medicamento m : medicamentos){
-            res.addAll(m.getMeds(f));
-        }
+        for (Medicamento m : medicamentos)
+            if(f.cumple(m))
+                res.add(m);
 
         return res;
     }

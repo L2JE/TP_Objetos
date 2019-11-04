@@ -9,6 +9,7 @@ public abstract class Droga {
     protected String nombre = "Unnamed";
 
     public abstract String getNombre();
+    public abstract boolean contiene(Droga d);
     public abstract float getPorcentDroga(Droga d);
     public abstract boolean esAccionTerap(EstPato estPato);
     public abstract boolean esContraindic(Sintoma sintoma);

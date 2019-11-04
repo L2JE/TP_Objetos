@@ -21,6 +21,10 @@ public class DrogaSimple extends Droga {
         return nombre;
     }
 
+    public boolean contiene(Droga d){
+        return nombre.equals(d.getNombre());
+    }
+
     public float getPorcentDroga(Droga d){
         return (d.getNombre() == this.nombre)? (float)1:(float)0;
     }

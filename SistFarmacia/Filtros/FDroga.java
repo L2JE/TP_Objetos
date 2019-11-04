@@ -4,13 +4,13 @@ import Drogas.*;
 
 public class FDroga implements Filtro {
 
-    private String nombre;
+    private Droga droga;
 
-    public FDroga(String nombre){
-        this.nombre = nombre;
+    public FDroga(Droga droga){
+        this.droga = droga;
     }
 
-    public boolean cumple(Droga drog){
-        return (drog != null) && drog.getNombre().equals(nombre);
+    public boolean cumple(Droga d){
+        return d.contiene(d);
     }
 }
