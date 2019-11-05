@@ -6,7 +6,7 @@ import Filtros.*;
 
 public class Farmacia {
 
-    private static ArrayList<Medicamento> medicamentos = new ArrayList<Medicamento>();
+    private static ArrayList<Medicamento> medicamentos = new ArrayList<Medicamento>();//Suponemos que al ser una farmacia no vende drogas simples, solo medicamentos.
     private static ArrayList<Integer> stock = new ArrayList<>();
     private static ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
 
@@ -16,7 +16,7 @@ public class Farmacia {
         //testRecetarAEnf();//OK
         //testRecetarAEnfPac();//OK
         //testRecetarDrogas();//ok
-        testPorcentajes();
+        //testPorcentajes();//ok
 
 
     }
@@ -196,7 +196,7 @@ public class Farmacia {
         medicamentos.add(m4);
         stock.add(5);
         medicamentos.add(m5);
-        stock.add(5);
+        stock.add(0);
 
 
         pacientes.add(new Paciente(d1, Sintoma.Cardiaco));
@@ -206,24 +206,24 @@ public class Farmacia {
 
     static void testFiltradoDroga(){
         System.out.println("Inicio test filtrado por Droga");
-
+        System.out.println("Resultado esperado: M3, M4");
+        
         Medicamento m = medicamentos.get(2);
         DrogaSimple d4 = new DrogaSimple("d4", new ArrayList<EstPato>(), new ArrayList<Sintoma>());
         ArrayList<Medicamento> medsFiltrados = m.getMeds(new FDroga(d4));
-
-        System.out.println("TamaÃ±o resultado: " + medsFiltrados.size());
+        
+        System.out.println("Tamaño resultado: " + medsFiltrados.size());
         if(medsFiltrados.size() > 0)
             for(Medicamento med : medsFiltrados)
                 System.out.println(med.getNombre());
 
         System.out.println("FIN test filtrado por Droga");
-
-
     }
+    
 
     static void testRecetarAEnf(){
         System.out.println("Inicio test recetar Medicamento a Enfermedad");
-        System.out.println("Resultado esperado: M1, M2, M5");
+        System.out.println("Resultado esperado: M1, M2"); //M5 seria parte si tuviera stock
         ArrayList<EstPato> estados = new ArrayList<EstPato>();
         estados.add(EstPato.E1);
         //estados.add(EstPato.E2);
@@ -243,7 +243,7 @@ public class Farmacia {
 
     static void testRecetarAEnfPac(){
         System.out.println("Inicio test recetar Medicamento a Paciente de Riesgo");
-        System.out.println("Resultado esperado: M2, M5");
+        System.out.println("Resultado esperado: M2");//M5 seria parte si tuviera stock
 
         ArrayList<EstPato> estados = new ArrayList<EstPato>();
         estados.add(EstPato.E2);
