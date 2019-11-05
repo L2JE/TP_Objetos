@@ -21,6 +21,7 @@ public class Farmacia {
 
     }
 
+    //Se resolveria c/algoritmo asignacion de tareas
     public static ArrayList<Medicamento> recetarMed(Enfermedad enf){
     	ArrayList<Medicamento> res = new ArrayList<Medicamento>();
     	
@@ -28,7 +29,7 @@ public class Farmacia {
 
     	for(Medicamento m: medicamentos){
     	    boolean cumple = true;
-            for(EstPato e: estadosPatologicos)
+            for(EstPato e: estadosPatologicos)///DEVE CURAR TODOS LOS ESTADOS PATOLOGICOS,
                 if (!m.esAccionTerap(e)){
                     cumple = false;
                     break;
@@ -42,7 +43,7 @@ public class Farmacia {
     	
     }
 
-    public static ArrayList<Droga> recetarDrog(Enfermedad enf){
+    public static ArrayList<Droga> recetarDrog(Enfermedad enf){///Ignoramos el Stock
         ArrayList<Droga> res = new ArrayList<Droga>();
 
         ArrayList<EstPato> estadosPatologicos = enf.getEPatos();
@@ -57,6 +58,10 @@ public class Farmacia {
             for(Droga d : aux )
                 if(!res.contains(d))
                     res.add(d);
+        }
+
+        for(Medicamento m : medicamentos){
+
         }
 
 
@@ -95,11 +100,45 @@ public class Farmacia {
             filtros.add(new FNot(new FOr(fsSintomas)));
 
             f = new FAnd(filtros);
-        }
+       }
+
+
 
         for (Medicamento m : medicamentos)
             if(f.cumple(m) && (stock.get(medicamentos.indexOf(m)) > 0))
                 res.add(m);
+
+        /*Solucion SIN FILTROS
+        ArrayList<DrogaSimple> alergias = pac.getAlergias();
+        ArrayList<Sintoma> sintomas = pac.getSintomas();
+        ArrayList<EstPato> ePatos = enf.getEPatos();
+        for(Medicamento m : medicamentos){
+            boolean cumple = true;
+            for(Droga d : alergias)
+                if(m.contiene(d)){
+                    cumple = false;
+                    break;
+                }
+            if(cumple){
+                for (Sintoma s : sintomas){
+                    if (m.esContraindic(s)){
+                        cumple = false;
+                        break;
+                    }
+                }
+                if(cumple){
+                    for(EstPato e : ePatos){
+                        if(!m.esAccionTerap(e)){
+                            cumple = false;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(cumple && (stock.get(medicamentos.indexOf(m)) > 0))
+                res.add(m);
+        }
+        */
 
         return res;
     }
